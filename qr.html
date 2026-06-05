@@ -28,7 +28,15 @@
     });
 
     function goToBooking() {
-      window.location.href = "https://b-book.run/@hommage_ki_ryou";
+      const qrId = getParam('utm_content') || 'unknown';
+      const baseUrl = "https://b-book.run/@hommage_ki_ryou";
+      const params = new URLSearchParams({
+        utm_source: 'qr',
+        utm_medium: 'print',
+        utm_campaign: 'tokuten_30off',
+        utm_content: qrId
+      });
+      window.location.href = baseUrl + '?' + params.toString();
     }
   </script>
 
